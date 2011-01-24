@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="javadoc">
+<target name="javadoc">
+<javadoc access="private" author="true" classpath="." destdir="javadoc" doctitle="Java Lattice Switch Simulation Code" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" overview="/scratch/anj/eclipse-workspace/jBinLats/src/package.html" packagenames="ec.util,net.anjackson.physics.ls.switches,edu.cornell.lassp.houle.RngPack,net.anjackson.physics.lattices,net.anjackson.physics.mc,net.anjackson.physics.ls,net.anjackson.utils,net.anjackson.maths" source="1.3" sourcepath="../src" splitindex="true" use="true" version="true"/>
+</target>
+</project>

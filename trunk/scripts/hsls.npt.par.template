@@ -1,0 +1,67 @@
+# The Hard-Sphere NPT lattice switch system:
+potential = hs
+ensemble = npt
+switchmap = ab2-fcc
+cold_start = true
+alpha = 0.58
+
+init.phase = 0
+latticeswitch.enabled = false
+loadconf = false
+
+# Dimensions of system (nx,ny,nz):
+l0.nx = 4
+l0.ny = 4
+l0.nz = 4
+
+l1.nx = 8
+l1.ny = 4
+l1.nz = 6
+
+# Volume fraction:
+volfrac = %(volfrac)s
+
+# Temperature ( == kT/e):
+temperature = 0.0
+
+# Particle move generation parameter[s] (dr in units of site seperation):
+dr = %(dr)s
+particle.move.type = %(particle.move.type)s
+
+# Volume move generation parameters:
+pressure = %(pressure)s
+dV = %(dV)s
+npt.fixed.aspect = false
+
+# Inclusion distance for NN lists (units of site seperation):
+nn.incdist = 1.5
+
+# Load initial configuration from 'init.conf'? (y/n -> cold_start = 0/1):
+loadconf = n
+
+# Total simulation time (total_sweeps in MCS):
+t.tot = 500000
+
+# Equilibration period (equib_sweeps in MCS):
+t.equib = 20000
+
+# Output period (output_period in MCS):
+t.output = 100
+
+# Checking & saving period (check_period in MCS):
+t.check = 500
+
+# RNG seed (iseed < 2147483647, <= 0 to seed from clock):
+rng.seed = -1
+
+# Sampling (strong/mcmc/imp 3[histog] [diag] [lock] [new_tpm] [read_whts.in] 2[clip]):
+samp.method = imp
+samp.histogram.low = -8000.0
+samp.histogram.high = 8000.0
+samp.histogram.bins = 1000
+samp.histogram.diagonal = 100
+samp.histogram.lock = 400
+samp.histogram.new_tpm = y
+samp.weights.read_weights_file = n
+
+
