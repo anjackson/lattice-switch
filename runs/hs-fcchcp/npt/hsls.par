@@ -1,0 +1,68 @@
+# The Hard-Sphere NPT FCC-HCP system:
+potential = hs
+ensemble = npt
+switchmap = fcc-hcp
+cold_start = true
+
+# Dimensions of system (nx,ny,nz):
+n.x = 6
+n.y = 6
+n.z = 6
+
+# Density (wrt unit site seperation): 
+density =  0.8
+
+# Pressure and dV:
+pressure = 14.58
+dV = 0.2
+
+# Temperature ( == kT/e):
+temperature = 0.0
+
+# Particle move generation parameter[s] (dr in units of site seperation):
+dr = 0.1
+
+# Inclusion distance for NN lists (units of site seperation):
+nn.incdist = 1.5
+
+# Load initial configuration from 'init.conf'? (y/n -> cold_start = 0/1):
+loadconf = n
+
+# Total simulation time (total_sweeps in MCS):
+t.tot = 100000
+
+# Equilibration period (equib_sweeps in MCS):
+t.equib = 0
+
+# Output period (output_period in MCS):
+t.output = 100
+
+# Checking & saving period (check_period in MCS):
+t.check = 1000
+
+# RNG seed (iseed < 2147483647, <= 0 to seed from clock):
+#rng.seed = 1138366973206
+rng.seed = -1
+
+# Sampling (strong/mcmc/imp 3[histog] [diag] [lock] [new_tpm] [read_whts.in] 2[clip]):
+samp.method = imp
+#samp.method = mcmc
+samp.histogram.low = -100.0
+samp.histogram.high = 100.0 
+samp.histogram.bins = 200
+samp.histogram.diagonal = 50
+samp.histogram.lock = 400
+samp.histogram.new_tpm = y
+samp.weights.read_weights_file = n
+#samp.weights.clip.low = -35
+#samp.weights.clip.high = 35
+
+
+# Extra parameters, used only for evolving the weight function:
+#evolve.weights = true
+#reset.displacements.on.check = true
+
+
+
+
+

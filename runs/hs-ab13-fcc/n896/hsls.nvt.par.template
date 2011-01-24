@@ -1,0 +1,66 @@
+# The Hard-Sphere NVT lattice switch system:
+potential = hs
+ensemble = nvt
+switchmap = ab13-hcp
+cold_start = true
+alpha = 0.58
+
+# Dimensions of system (nx,ny,nz):
+l0.nx = 4
+l0.ny = 4
+l0.nz = 4
+
+l1.nx = 8
+l1.ny = 8
+l1.nz = 14
+
+# Volume fraction:
+volfrac = %(volfrac)s
+
+# c/a ratios for each phase
+l0.cOa = %(l0cOa)s
+l1.cOa = %(l1cOa)s
+
+# Temperature ( == kT/e):
+temperature = 0.0
+
+# Particle move generation parameter[s] (dr in units of site seperation):
+dr = %(dr)s
+particle.move.type = rw
+
+# Inclusion distance for NN lists (units of site seperation):
+nn.incdist = 1.5
+
+# Load initial configuration from 'init.conf'? (y/n -> cold_start = 0/1):
+loadconf = n
+
+# Total simulation time (total_sweeps in MCS):
+t.tot = %(t_tot)s
+
+# Equilibration period (equib_sweeps in MCS):
+t.equib = %(t_equib)s
+
+# Output period (output_period in MCS):
+t.output = %(t_out)s
+
+# Checking & saving period (check_period in MCS):
+t.check = %(t_check)s
+
+# RNG seed (iseed < 2147483647, <= 0 to seed from clock):
+rng.seed = -1
+
+# Sampling (strong/mcmc/imp 3[histog] [diag] [lock] [new_tpm] [read_whts.in] 2[clip]):
+samp.method = mcmc
+samp.histogram.low = -2000
+samp.histogram.high = 2000
+samp.histogram.bins = 4000
+samp.histogram.diagonal = 500
+samp.histogram.lock = 400
+samp.histogram.new_tpm = %(ss_new_tpm)s
+samp.weights.read_weights_file = %(ss_read_weights)s
+
+# Extra parameters, used only for evolving the weight function:
+evolve.weights = %(evolve_weights)s
+reset.displacements.on.check = %(reset_u)s
+
+
